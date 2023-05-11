@@ -15,7 +15,7 @@ data "aws_ec2_instance_type_offerings" "my_ins_type" {
   for_each = toset(data.aws_availability_zones.my_azones.names)
   filter {
     name   = "instance-type"
-    values = ["t3.micro"]
+    values = ["t2.micro"]
   }
   filter {
     name   = "location"
@@ -56,5 +56,5 @@ output "output_v3_3" {
 output "output_v3_4" {
   value = keys({
     for az, details in data.aws_ec2_instance_type_offerings.my_ins_type: 
-    az => details.instance_types if length(details.instance_types) != 0 })[0]
+    az => details.instance_types if length(details.instance_types) != 0 })[3]
 }

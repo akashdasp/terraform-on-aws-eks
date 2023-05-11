@@ -1,8 +1,8 @@
 # Create VPC Terraform Module
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "3.11.0"  
-  # version = "~> 3.11"
+  #version = "3.11.0"  
+  version = "~>4.0"
 
   # VPC Basic Details
   name = "vpc-dev"
@@ -40,7 +40,7 @@ module "vpc" {
   }
 
   tags = {
-    Owner = "kalyan"
+    Owner = "Akash"
     Environment = "dev"
   }
 
